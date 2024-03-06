@@ -16,7 +16,6 @@ function App() {
   function submithandler(event){
     event.preventDefault();
     console.log(formdata);
-    event.preventDefault(N)
   }
   return (
     <div>
