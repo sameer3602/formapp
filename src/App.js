@@ -19,7 +19,7 @@ function App() {
   }
   return (
     <div>
-      <fieldset>
+      <fieldset className='field'>
         <legend className='heading'>Employee Details</legend>
       <form className='mainform' onSubmit={submithandler}>
         <label>First Name</label>
