@@ -15,9 +15,22 @@ body{
   text-indent: 20px;
   color: #25578f;
 }
+.heading{
+  text-align: center;
+}
 .submitbtn{
   margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.savebtn{
+  height:25px;
+  width: 50px;
+  background-color: #4f77a5;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  font-size: 700;
+  font-family:'Times New Roman', Times, serif ;
 }

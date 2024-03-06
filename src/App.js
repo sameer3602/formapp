@@ -2,8 +2,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [formdata,setformdata]=useState( {firstname:"",lastname:"",country:"",email:"",street:"",city:"",postal:"",isvisible:true} );
-  console.log(formdata);
+  const [formdata,setformdata]=useState( {firstname:"",lastname:"",country:"",email:"",street:"",city:"",postal:"",comments:false,candidates:false,offers:false,PushNotifications:""} );
+  
   function Changehandler(event){
     const {name,value,type,checked}=event.target
     setformdata(preformdata=>{
@@ -13,13 +13,16 @@ function App() {
       }
     });
   }
-  // function submithandler(event){
-  //   event.preventdefault();
-
-  // }
+  function submithandler(event){
+    event.preventDefault();
+    console.log(formdata);
+    event.preventDefault(N)
+  }
   return (
     <div>
-      <form className='mainform'>
+      <fieldset>
+        <legend className='heading'>Employee Details</legend>
+      <form className='mainform' onSubmit={submithandler}>
         <label>First Name</label>
         <br/>
         <input
@@ -44,7 +47,7 @@ function App() {
         <br/>
         <input
           type="text"
-          placeholder='Email'
+          placeholder='name@gmail.com'
           onChange={Changehandler}
           name="email"
           value={formdata.email}
@@ -66,6 +69,7 @@ function App() {
           onChange={Changehandler}
           name="street"
           value={formdata.street}
+          placeholder='Nehru Place'
         />
         <br/>
         <label>City</label>
@@ -75,13 +79,14 @@ function App() {
           onChange={Changehandler}
           name="city"
           value={formdata.city}
+          placeholder='Delhi'
         />
         <br/>
         <label>Postal Code</label>
         <br/>
         <input
           type="text"
-          placeholder=' Enter Pin Code'
+          placeholder='210301'
           onChange={Changehandler}
           name="postal"
           value={formdata.postal}
@@ -93,31 +98,31 @@ function App() {
         <input
           type="checkbox"
           onChange={Changehandler}
-          name="isvisible"
-          id="isvisible"
-          checked={formdata.isvisible}
+          name="comments"
+          id="comments"
+          checked={formdata.comments}
         />
-        <label className='radiolabel' htmlFor="isvisible">Comments</label>
+        <label className='radiolabel' htmlFor="comments">Comments</label>
         <p className='indent'>Get Notified when someones posts a comment on a posting.</p>
         
         <input
           type="checkbox"
           onChange={Changehandler}
-          name="isvisible"
-          id="isvisible"
-          checked={formdata.isvisible}
+          name="candidates"
+          id="candidates"
+          checked={formdata.candidates}
         />
-        <label htmlFor="isvisible" className='radiolabel'>Candidates</label>
+        <label htmlFor="candidates" className='radiolabel'>Candidates</label>
         <p className='indent'>Get Notified when a candidate applies for a job.</p>
         
         <input
           type="checkbox"
           onChange={Changehandler}
-          name="isvisible"
-          id="isvisible"
-          checked={formdata.isvisible}
+          name="offers"
+          id="offers"
+          checked={formdata.offers}
         />
-        <label className='radiolabel' htmlFor="isvisible">Offers</label>
+        <label className='radiolabel' htmlFor="offers">Offers</label>
         <p className='indent'> Get Notified when candidate accepts or rejects an offer.</p>
         
         <br/>
@@ -125,25 +130,36 @@ function App() {
         <input
           type="radio"
           id="sms"
+          name='PushNotifications'
+          onChange={Changehandler}
+          value="Everything"
         />
         <label htmlFor='sms'>Everything.</label>
         <br/>
         <input
           type="radio"
-          id="Everything"
+          id="Push_email"
+          name="PushNotifications"
+          onChange={Changehandler}
+          value="Same as Email"
         />
-        <label For='Everything'>Same as Email.</label>
+        <label htmlFor='Push_email'>Same as Email.</label>
         <br/>
         <input
           type="radio"
-          id="email"
+          id="NoPushNotifications"
+          name="PushNotifications"
+          onChange={Changehandler}
+          value="No Push Notifications"
         />
-        <label For='email'>No push Notifications.</label>
+        <label htmlFor='NoPushNotifications'>No push Notifications.</label>
         <br/>
         <div className='submitbtn'>
-          <button>Submit</button>
+          <button className='savebtn'>Save</button>
         </div>
       </form>
+      </fieldset>
+      
     </div>
   );
 }
