@@ -8,7 +8,7 @@ function App() {
     const {name,value,type,checked}=event.target
     setformdata(preformdata=>{
       return{
-        ..preformdata,
+        ...preformdata,
         [name]: type==="checkbox" ? checked:value
       }
     });
